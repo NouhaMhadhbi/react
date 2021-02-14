@@ -9,21 +9,21 @@ class PeopleScreen extends React.Component {
     render() {
       var tables=this.props.route.params.tables;
       
-        const tileDimensions = calcTileDimensions(90, 2)  // -> change this number and see!
+        const tileDimensions = calcTileDimensions(66, 1.1)  // -> change this number and see!
         const tiles = '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30'.split(' ')
         return (
           <View style={styles.container}>
-            
+             <View style={styles.container}>
             {tiles.map(i => Item({...tileDimensions, text: i} ) ) } 
-            
-            <Button
+            </View>
+            {/* <Button
         title="Précédent"
         onPress={() => () => navigation.goBack()}
-      />
-      
+      /> */}
+        <View style={styles.btn}>
       <Button title="suivante" onPress={() => this.props.navigation.push(('votre Qrcode'),{tabs : tables , person: people })} />
     
-
+      </View>
     
       
         </View>);
@@ -67,6 +67,10 @@ const Item = ({size, margin, text}) => (
     },
     itemText: {
       fontSize: 20
+    }, 
+    btn:{
+      width:160,
+      marginLeft:90,  
     }
   });
   

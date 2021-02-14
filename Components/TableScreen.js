@@ -15,18 +15,24 @@ class TableScreen extends React.Component {
         const tileDimensions = calcTileDimensions(90, 2)  // -> change this number and see!
         const tiles = '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40'.split(' ')
         return (
-          <View style={styles.container}>
+          <View >
+            <View style={styles.container}>
             {tiles.map(i => Item({...tileDimensions, text: i} ) ) } 
-            
-                    <Button
+            </View>
+                    {/* <Button
                    title="Précédent"
                    onPress={() => () => navigation.goBack()}
-                />
+                /> */}
 
-                <Button title="suivante" onPress={() => this.props.navigation.navigate(('Chosir le nombre des personnes'),{ tables: tables })
+               
+              <View style={styles.btn}>
+         
+             <Button   title="suivante" onPress={() => this.props.navigation.navigate(('Chosir le nombre des personnes'),{ tables: tables })
        
-          } />
-          </View>);
+      } />
+      </View> 
+          </View>
+          );
         
       
     }
@@ -67,6 +73,10 @@ const Item = ({size, margin, text}) => (
     },
     itemText: {
       fontSize: 20
+    },
+    btn:{
+      width:160,
+      marginLeft:90,  
     }
   });
 export default TableScreen
