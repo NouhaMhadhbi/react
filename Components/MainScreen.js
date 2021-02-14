@@ -16,7 +16,7 @@ class MainScreen extends React.Component {
  
 </TouchableOpacity>
 
-        <Text  style={styles.green} onPress={() => this.props.navigation.push('Chosir la liste des Tableaux')} >  {"\n"}{"\n"}{"\n"}     Touchez {"\n"}l'écran</Text>
+        <Text  style={styles.green} onPress={() => this.props.navigation.push('Tableaux')} >  {"\n"}{"\n"}{"\n"}     Touchez {"\n"}l'écran</Text>
         
       </View>
     )

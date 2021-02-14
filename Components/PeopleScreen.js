@@ -12,20 +12,26 @@ class PeopleScreen extends React.Component {
         const tileDimensions = calcTileDimensions(66, 1.1)  // -> change this number and see!
         const tiles = '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30'.split(' ')
         return (
-          <View style={styles.container}>
+          <View >
+             <Text style={styles.txt}>{"\n"}Chosir le nombre des Personnes:</Text>
+           
              <View style={styles.container}>
             {tiles.map(i => Item({...tileDimensions, text: i} ) ) } 
             </View>
-            {/* <Button
-        title="Précédent"
-        onPress={() => () => navigation.goBack()}
-      /> */}
-        <View style={styles.btn}>
-      <Button title="suivante" onPress={() => this.props.navigation.push(('votre Qrcode'),{tabs : tables , person: people })} />
+            
     
-      </View>
-    
-      
+      <View style={styles.multiButtonContainer}>
+          <Button
+            onPress={() => this.props.navigation.goBack(null)}
+            title="Précédent"
+            color="#009933"
+          />
+          <Button
+            onPress={() => this.props.navigation.push(('Qrcode'),{tabs : tables , person: people })}
+            title=" suivante "
+            color="#009933"
+          />
+        </View>
         </View>);
         
       
@@ -59,7 +65,7 @@ const Item = ({size, margin, text}) => (
        justifyContent: "flex-start", flexDirection: "row", flexWrap: "wrap", marginTop: 30
     },
     item: {
-      backgroundColor: 'green',  
+      backgroundColor: 'red',  
        alignSelf: "flex-start",
        alignItems: 'center',
        justifyContent: 'center',
@@ -67,10 +73,15 @@ const Item = ({size, margin, text}) => (
     },
     itemText: {
       fontSize: 20
-    }, 
-    btn:{
-      width:160,
-      marginLeft:90,  
+    },
+   multiButtonContainer: {
+      margin: 80,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 20
+    },
+    txt:{
+fontSize:20
     }
   });
   
